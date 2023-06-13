@@ -9,6 +9,8 @@ RUN pip install djangorestframework
 # RUN pip install --no-cache-dir -r requirements.txt
 
 # COPY . .
+# VOLUME ./django ./
 
-# CMD [ "python", "./your-daemon-or-script.py" ]
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+# CMD [ "python", "./manage.py", "runserver" ]
+ENTRYPOINT [ "python3", "-u", "./manage.py", "runserver", "0.0.0.0:8000" ]
+# ENTRYPOINT ["tail", "-f", "/dev/null"]
